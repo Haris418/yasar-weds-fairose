@@ -28,7 +28,7 @@
   </head>
   <body>
     <!-- Add the audio element -->
-    <audio id="backgroundAudio" loop>
+    <audio id="backgroundAudio" loop autoplay muted >
       <source src="./assets/Mulumathy Avalathu mugamagum ! Flute version.mp3" type="audio/mpeg">
       <!-- Add additional source tags for different audio formats -->
       <!-- For example, <source src="path/to/your/audio-file.ogg" type="audio/ogg"> -->
@@ -281,6 +281,7 @@
       
   
     </main>
+    <!-- <button id="playAudio">Play Audio</button> -->
 
     <footer>
         <!-- Footer Start-->
@@ -369,6 +370,13 @@
 
     $( document ).ready(function() {
       playAudio();
+    });
+
+    $('#playAudio').on('click', function () {
+      const audio = $('#backgroundAudio')[0];
+      audio.play().catch(error => {
+        console.error('Playback error:', error);
+      });
     });
       
       const audio = document.getElementById('backgroundAudio');
